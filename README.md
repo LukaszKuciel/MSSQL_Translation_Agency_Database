@@ -43,7 +43,7 @@ the language of the original and the language of translation.
 12. The client may issue a grade and comment to the translator for the part of the order he has completed.
 
 ### 2.3 Logical data model
-<img src="https://i.imgur.com/s5JFhUI.png" alt="Logical data model" width="500">
+<img src="https://i.imgur.com/s5JFhUI.png" alt="Logical data model" width="700">
 
 #### 2.3.1 Description of entities and attributes and their fields
 
@@ -97,7 +97,7 @@ __*Orders*__
 
 
 ### 2.4 Physical/Universal data model
-<img src="https://i.imgur.com/EdvaZ62.png" alt="Physical/Universal data model" width="500">
+<img src="https://i.imgur.com/EdvaZ62.png" alt="Physical/Universal data model" width="700">
 
 __*Comments:*__
 * In the Orders table, enter CONSTRAINT CHECK with the content: StartDate < EndDate
@@ -114,4 +114,4 @@ For database testing run sql commands from files as follows:
 3. ExampleQueries.sql
 
 ### 3.1 MSSQL database realization diagram
-<img src="https://i.imgur.com/K6w2Xuy.png" alt="MSSQL database realization diagram" width="500">
+<img src="https://i.imgur.com/K6w2Xuy.png" alt="MSSQL database realization diagram" width="700">
