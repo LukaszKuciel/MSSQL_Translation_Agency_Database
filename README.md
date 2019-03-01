@@ -47,27 +47,31 @@ the language of the original and the language of translation.
 
 #### Description of entities and attributes and their fields
 
-_*Customers*_
+__**Customers**__
 * CustomerID - mandatory, integer, unique, primary key
 * Name - mandatory, inscription no longer than 150 characters long
 * Address - mandatory, inscription no longer than 250 characters long
 * Email - mandatory, string length not exceeding 320 characters
-_*Documents*_
+
+__**Documents**__
 * DocumentID - mandatory, integer, unique, primary key
 * Title - mandatory, inscription no longer than 250 characters long
 * WordsCount - mandatory, number
 * FileURL - optional, inscription no longer than 250 characters long
 * Origin - mandatory, single character
+
 _*Languages*_
 * LanguageID - mandatory, integer, unique, primary key
 * Name - mandatory, inscription no longer than 150 characters long
 * RatePerWord - mandatory, number with a decimal
+
 _*Translators*_
 * TranslatorID - mandatory, integer, unique, primary key
 * FirstName - mandatory, inscription length not exceeding 250 characters
 * LastName - mandatory, inscription no longer than 250 characters long
 * Address - optional, inscription no longer than 250 characters long
 * Email - mandatory, string length not exceeding 320 characters
+
 _*Orders*_
 * OrderID - mandatory, integer, unique, primary key
 * DocumentID - mandatory, integer
