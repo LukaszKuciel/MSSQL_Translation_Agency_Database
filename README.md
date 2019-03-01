@@ -30,7 +30,8 @@ every language
 ### Buisness rules
 
 ### Logical data model
-![Logical data model](https://i.imgur.com/s5JFhUI.png | width=500)
+<img src="https://i.imgur.com/s5JFhUI.png" alt="alt text" width="500">
+
 
 #### Description of entities and attributes and their fields
 
