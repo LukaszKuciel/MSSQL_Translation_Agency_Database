@@ -82,7 +82,19 @@ __*Orders*__
 * Price - mandatory, number with decimal development
 
 
-#### Description of entities and attributes and their fields
+#### Buisness rules verification
+*Fact 1 is modelled by the dependence of "Translators are assigned to many orders" between entities "Translators" and "Orders".
+* Fact 2 is modelled by introducing the "Orders_Translators" relational table between entities "Translators" and "Orders" having the attribute "TranslatedPercentage".
+* Fact 3 is modelled by creating in the relational table "Orders_Translators" a key composed of "OrderID" and "TranslatorID".
+* Fact 4 and Fact 7 are modelled by the dependence of "Customers has many documents" between entities "Customers" and "Documents".
+* Fact 5 implemented by the TRIGGER procedure described in the physical model.
+* Fact 6 is modelled by the dependency of "Document has many translation orders" between entities "Orders" and "Documents".
+* Fact 8 is modelled by the dependency of "Documents has various languages" between entities "Documents" and "Languages".
+* Fact 9 is modelled by the dependency of "Language is a target for many orders" between entities "Orders" and "Languages".
+* Fact 10 is modelled by the dependence of "Translator knows many languages" between entities "Languages" and "Translators".
+* Fact 11 was implemented through the TRIGGER type procedure described in the physical model.
+* Fact 12 is modelled by introducing the "Orders_Translators" relational table between entities "Translators" and "Orders" having the "ReviewRate" and "ReviewComment" attributes.
+
 
 ### Physical/Universal data model
 <img src="https://i.imgur.com/EdvaZ62.png" alt="Physical/Universal data model" width="500">
