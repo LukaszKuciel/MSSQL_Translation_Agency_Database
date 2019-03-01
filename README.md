@@ -32,8 +32,9 @@ every language
 2. For each translator of a given order, the percentage share in the translation is determined.
 3. A translator cannot be assigned twice to translate the same order.
 4. The customer may have many documents in different original languages.
-5. The client may order his documents for translation but only if there is a translator who knows both the language of the original and the language of translation.
-6. The document can be translated many times into various languages offered.
+5. The client may order his documents for translation but only if there is a translator who knows both
+the language of the original and the language of translation.
+6. The document can be translated many times into various languages ​​offered.
 7. The document can belong to only one client.
 8. The language can specify the language of the original for many documents.
 9. The language can define the language of translation for many orders.
@@ -45,6 +46,37 @@ every language
 <img src="https://i.imgur.com/s5JFhUI.png" alt="Logical data model" width="500">
 
 #### Description of entities and attributes and their fields
+
+_*Customers*_
+* CustomerID - mandatory, integer, unique, primary key
+* Name - mandatory, inscription no longer than 150 characters long
+* Address - mandatory, inscription no longer than 250 characters long
+* Email - mandatory, string length not exceeding 320 characters
+_*Documents*_
+* DocumentID - mandatory, integer, unique, primary key
+* Title - mandatory, inscription no longer than 250 characters long
+* WordsCount - mandatory, number
+* FileURL - optional, inscription no longer than 250 characters long
+* Origin - mandatory, single character
+_*Languages*_
+* LanguageID - mandatory, integer, unique, primary key
+* Name - mandatory, inscription no longer than 150 characters long
+* RatePerWord - mandatory, number with a decimal
+_*Translators*_
+* TranslatorID - mandatory, integer, unique, primary key
+* FirstName - mandatory, inscription length not exceeding 250 characters
+* LastName - mandatory, inscription no longer than 250 characters long
+* Address - optional, inscription no longer than 250 characters long
+* Email - mandatory, string length not exceeding 320 characters
+_*Orders*_
+* OrderID - mandatory, integer, unique, primary key
+* DocumentID - mandatory, integer
+* LanguageID - mandatory, integer
+* Finished - mandatory, single character
+* StartDate - mandatory, date and time
+* EndDate - mandatory, date and time
+* Price - mandatory, number with decimal development
+
 
 #### Description of entities and attributes and their fields
 
