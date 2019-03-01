@@ -23,8 +23,15 @@ every language
 ### 2.1 Dictionary of concepts
 
 * Language - has a translation rate per word.
-* Translator - employee, translates assignments assigned to him/her.
+* Original language - the language in which the document is written.
+* Language of translation - the language into which the document is to be translated.
+* Translator - employee, I translate assignments assigned to him.
+* Client - has documents and requests translations.
 * Document - has the language of the original, belongs to one customer, is the subject of the translation.
+* Order - a translation order created by the client, for a given document and a given language.
+* Fee - an amount equal to the product of the number of words in a document and the word rate for language
+translations.
+* Opinion - evaluation of the interpreter's work issued by the client on a scale from 1 to 5.
 
 
 ### 2.2 Buisness rules
