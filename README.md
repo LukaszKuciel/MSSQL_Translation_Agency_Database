@@ -20,12 +20,25 @@ every language
 
 ## Data Model
 
-### Dictionary
+### Dictionary of concepts
 
 * Language - has a translation rate per word.
 * Translator - employee, translates assignments assigned to him/her.
+* Document - has the language of the original, belongs to one customer, is the subject of the translation.
 
 
+### Buisness rules
+
+### Logical data model
 ![Logical data model](https://i.imgur.com/s5JFhUI.png)
+
+#### Description of entities and attributes and their fields
+
+#### Description of entities and attributes and their fields
+
+### Physical/Universal data model
 ![Physical/Universal data model](https://i.imgur.com/EdvaZ62.png)
+
+## Database realisation
+### MSSQL database realization diagram
 ![MSSQL database realization diagram](https://i.imgur.com/K6w2Xuy.png)
