@@ -83,7 +83,7 @@ __*Orders*__
 
 
 #### Buisness rules verification
-*Fact 1 is modelled by the dependence of "Translators are assigned to many orders" between entities "Translators" and "Orders".
+* Fact 1 is modelled by the dependence of "Translators are assigned to many orders" between entities "Translators" and "Orders".
 * Fact 2 is modelled by introducing the "Orders_Translators" relational table between entities "Translators" and "Orders" having the attribute "TranslatedPercentage".
 * Fact 3 is modelled by creating in the relational table "Orders_Translators" a key composed of "OrderID" and "TranslatorID".
 * Fact 4 and Fact 7 are modelled by the dependence of "Customers has many documents" between entities "Customers" and "Documents".
@@ -98,6 +98,13 @@ __*Orders*__
 
 ### Physical/Universal data model
 <img src="https://i.imgur.com/EdvaZ62.png" alt="Physical/Universal data model" width="500">
+
+__*Comments:*__
+* In the Orders table, enter CONSTRAINT CHECK with the content: StartDate < EndDate
+* In the Orders table, we introduce the TRIGGER (firing procedure) of INSTEAD OF INSERT aimed at verifying if there is a translator who knows the language in which the requested document is written and the language into which it is to be translated. If this condition is not met, the order will not be created. The second goal of the procedure is to calculate the price per order based on the number of words in the ordered document and word rates for the selected language.
+* In the Orders_Translators table, enter CONSTRAINT CHECK with the following content: ReviewRate> = 1 AND ReviewRate <= 5. This is to prevent the evaluation from being translated for a non-range translation
+from 1-5.
+
 
 ## Database realisation
 Code for database can be found in /SQL directory. 
