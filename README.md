@@ -30,15 +30,15 @@ every language
 ### Buisness rules
 
 ### Logical data model
-![Logical data model](https://i.imgur.com/s5JFhUI.png)
+![Logical data model](https://i.imgur.com/s5JFhUI.png | width=500)
 
 #### Description of entities and attributes and their fields
 
 #### Description of entities and attributes and their fields
 
 ### Physical/Universal data model
-![Physical/Universal data model](https://i.imgur.com/EdvaZ62.png)
+![Physical/Universal data model](https://i.imgur.com/EdvaZ62.png  | width=500)
 
 ## Database realisation
 ### MSSQL database realization diagram
-![MSSQL database realization diagram](https://i.imgur.com/K6w2Xuy.png)
+![MSSQL database realization diagram](https://i.imgur.com/K6w2Xuy.png  | width=500)
