@@ -1,6 +1,6 @@
 # Simple SQL database project for online translation agency
 
-## Problem
+## 1. Problem
 
 According to the client's requirements, the database is designed to provide information about translation requests (date
 start, end date, the language of translation, translated document), information about translators (first name,
@@ -18,16 +18,16 @@ every language
 * Enter a list of languages with the number of translators who know the language sorted by the cost of the translation in descending order
 * Provide a list of documents sorted by the number of words contained in them, descending
 
-## Data Model
+## 2. Data Model
 
-### Dictionary of concepts
+### 2.1 Dictionary of concepts
 
 * Language - has a translation rate per word.
 * Translator - employee, translates assignments assigned to him/her.
 * Document - has the language of the original, belongs to one customer, is the subject of the translation.
 
 
-### Buisness rules
+### 2.2 Buisness rules
 1. The order can be translated by one or many translators.
 2. For each translator of a given order, the percentage share in the translation is determined.
 3. A translator cannot be assigned twice to translate the same order.
@@ -42,10 +42,10 @@ the language of the original and the language of translation.
 11. A fee is charged for each order.
 12. The client may issue a grade and comment to the translator for the part of the order he has completed.
 
-### Logical data model
+### 2.3 Logical data model
 <img src="https://i.imgur.com/s5JFhUI.png" alt="Logical data model" width="500">
 
-#### Description of entities and attributes and their fields
+#### 2.3.1 Description of entities and attributes and their fields
 
 __*Customers*__
 * CustomerID - mandatory, integer, unique, primary key
@@ -82,7 +82,7 @@ __*Orders*__
 * Price - mandatory, number with decimal development
 
 
-#### Buisness rules verification
+#### 2.3.2 Buisness rules verification
 * Fact 1 is modelled by the dependence of "Translators are assigned to many orders" between entities "Translators" and "Orders".
 * Fact 2 is modelled by introducing the "Orders_Translators" relational table between entities "Translators" and "Orders" having the attribute "TranslatedPercentage".
 * Fact 3 is modelled by creating in the relational table "Orders_Translators" a key composed of "OrderID" and "TranslatorID".
@@ -96,7 +96,7 @@ __*Orders*__
 * Fact 12 is modelled by introducing the "Orders_Translators" relational table between entities "Translators" and "Orders" having the "ReviewRate" and "ReviewComment" attributes.
 
 
-### Physical/Universal data model
+### 2.4 Physical/Universal data model
 <img src="https://i.imgur.com/EdvaZ62.png" alt="Physical/Universal data model" width="500">
 
 __*Comments:*__
@@ -106,12 +106,12 @@ __*Comments:*__
 from 1-5.
 
 
-## Database realisation
+## 3 Database realisation
 Code for database can be found in /SQL directory. 
 For database testing run sql commands from files as follows:
 1. Database.sql
 2. TestData.sql
 3. ExampleQueries.sql
 
-### MSSQL database realization diagram
+### 3.1 MSSQL database realization diagram
 <img src="https://i.imgur.com/K6w2Xuy.png" alt="MSSQL database realization diagram" width="500">
