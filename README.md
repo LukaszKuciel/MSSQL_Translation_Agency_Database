@@ -28,6 +28,18 @@ every language
 
 
 ### Buisness rules
+1. The order can be translated by one or many translators.
+2. For each translator of a given order, the percentage share in the translation is determined.
+3. A translator cannot be assigned twice to translate the same order.
+4. The customer may have many documents in different original languages.
+5. The client may order his documents for translation but only if there is a translator who knows both the language of the original and the language of translation.
+6. The document can be translated many times into various languages offered.
+7. The document can belong to only one client.
+8. The language can specify the language of the original for many documents.
+9. The language can define the language of translation for many orders.
+10. The translator may know many languages.
+11. A fee is charged for each order.
+12. The client may issue a grade and comment to the translator for the part of the order he has completed.
 
 ### Logical data model
 <img src="https://i.imgur.com/s5JFhUI.png" alt="Logical data model" width="500">
@@ -40,5 +52,11 @@ every language
 <img src="https://i.imgur.com/EdvaZ62.png" alt="Physical/Universal data model" width="500">
 
 ## Database realisation
+Code for database can be found in /SQL directory. 
+For database testing run sql commands from files as follows:
+1. Database.sql
+2. TestData.sql
+3. ExampleQueries.sql
+
 ### MSSQL database realization diagram
 <img src="https://i.imgur.com/K6w2Xuy.png" alt="MSSQL database realization diagram" width="500">
