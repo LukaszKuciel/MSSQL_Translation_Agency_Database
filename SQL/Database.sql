@@ -57,14 +57,6 @@ CREATE TABLE [Documents]
 )
 go
 
--- Create indexes for table Documents
-
-CREATE INDEX [IX_Relationship1] ON [Documents] ([CustomerID])
-go
-
-CREATE INDEX [IX_Relationship2] ON [Documents] ([LanguageID])
-go
-
 -- Add keys for table Documents
 
 ALTER TABLE [Documents] ADD CONSTRAINT [PK_Documents] PRIMARY KEY ([DocumentID])
@@ -114,68 +106,9 @@ CREATE TABLE [Orders]
 )
 go
 
--- Create indexes for table Orders
-
-CREATE INDEX [IX_Relationship7] ON [Orders] ([LanguageID])
-go
-
-CREATE INDEX [IX_Relationship8] ON [Orders] ([DocumentID])
-go
-
 -- Add keys for table Orders
 
 ALTER TABLE [Orders] ADD CONSTRAINT [PK_Orders] PRIMARY KEY ([OrderID])
-go
-
--- Create triggers for table Orders
-
-CREATE TRIGGER [OrderInsertTrigger]
-    ON [Orders]
-    INSTEAD OF INSERT
-    AS
-    BEGIN
-        SET NOCOUNT ON;
-
-        DECLARE @LanguageID AS Int,
-        @DocumentID AS Int,
-        @DocumentLanguage AS Int,
-        @Proceed AS Int;
-
-        SELECT @LanguageID = LanguageID, @DocumentID = DocumentID 
-        FROM INSERTED;
-
-        SELECT @DocumentLanguage = LanguageID 
-        FROM Documents 
-        WHERE DocumentID = @DocumentID;
-
-        SELECT @Proceed = TranslatorID
-        FROM Translators_Languages
-        WHERE LanguageID IN ( @LanguageID, @DocumentLanguage )
-        GROUP BY TranslatorID
-        HAVING COUNT(DISTINCT LanguageID) >= 2;
-
-        IF @Proceed IS NOT NULL
-            BEGIN
-            INSERT INTO [Orders](
-                [LanguageID],
-                [DocumentID],
-                [StartDate],
-                [Price])
-            VALUES( 
-                @LanguageID,
-                @DocumentID,
-                GETDATE(),
-                (
-                    SELECT (D.WordsCount * L.RatePerWord) AS Price
-                    FROM Documents AS D
-                    LEFT JOIN Languages AS L ON L.LanguageID = @LanguageID
-                    WHERE D.DocumentID = @DocumentID
-                )
-            )
-            END
-        ELSE
-        PRINT 'No translator found for this kind of translation.';
-    END    
 go
 
 -- Table Orders_Translators
